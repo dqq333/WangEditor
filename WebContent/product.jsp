@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,14 @@
 </head>
 <body>
 	<div id="all">
+		<!-- 定义一个显示增加成功还是失败的容器 -->
+		<p>
+		<c:if test="${empty msg}" var="isNo"></c:if>
+		<c:if test="${!isNo }">
+			<c:if test="${msg eq 'true' }">添加成功！</c:if>
+			<c:if test="${msg eq 'false'}">添加失败！</c:if>
+		</c:if>
+		</p>
 		<form action="AddPro" method="post">
 		<div>
 			<input type="submit" value="中文产品列表"/>
